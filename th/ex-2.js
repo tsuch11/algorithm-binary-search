@@ -13,6 +13,22 @@
 */
 
 // Start coding here
+const updateStudentScore = (studentsInfo, targetStudent, addScore) => {
+    let [left, right] = [0, studentsInfo.length - 1];
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        let currentName = studentsInfo[mid].name;
+
+        if (currentName === targetStudent) {
+    studentsInfo[mid].score += addScore;
+    return `${targetStudent} score is now ${studentsInfo[mid].score}`;
+        }
+
+        currentName < targetStudent ? left = mid + 1 : right = mid - 1;
+    }
+    return `Not found ${targetStudent} on the list`;
+};
 
 const studentsInfo = [
   { name: "Alice", age: 14, classNumber: 8, score: 70 },

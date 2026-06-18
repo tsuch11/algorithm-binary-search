@@ -10,6 +10,19 @@
 */
 
 // Start coding here
+const findTargetStudent = (studentsInfo, targetStudent) => {
+    let [left, right] = [0, studentsInfo.length - 1];
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        let currentName = studentsInfo[mid].name;
+
+        if (currentName === targetStudent) return mid;
+
+        currentName < targetStudent ? left = mid + 1 : right = mid - 1;
+    }
+    return -1;
+};
 
 const studentsInfo = [
   { name: "Alice", age: 14, classNumber: 8, favoriteSubject: "Math" },
